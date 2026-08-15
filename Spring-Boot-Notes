@@ -1,0 +1,72 @@
+Spring Boot Basics Notes
+What is Spring Boot?
+
+Spring Boot is a framework built on top of the Spring Framework. It helps developers build production-ready Java applications with minimal configuration.
+
+Spring Container
+
+The Spring Container is responsible for:
+
+Creating objects (Beans)
+Managing their lifecycle
+Injecting dependencies automatically
+Spring Bean
+
+A Spring Bean is an object created and managed by the Spring Container.
+
+Example:
+
+@Service
+public class BookService {
+
+}
+
+**Dependency Injection (DI)**
+
+Dependency Injection is a design pattern where a class receives
+its dependencies from the outside instead of creating them itself.
+
+
+**Constructor Injection**
+
+Constructor Injection provides all required dependencies when an object is created.
+
+It is the recommended way in Spring Boot because dependencies are mandatory and can be declared as final.
+
+
+**Setter Injection**
+
+Setter Injection provides dependencies after the object has been created.
+
+It is useful when a dependency is optional or may change later.
+
+**Important Annotations**
+@SpringBootApplication
+
+Starts the Spring Boot application and enables auto-configuration and component scanning.
+
+@RestController
+
+Marks a class as a REST Controller that handles HTTP requests.
+
+@Service
+
+Marks a class that contains business logic.
+
+@Repository
+
+Marks a class responsible for database operations.
+-----------------------------------------------------
+Method	Purpose
+GET	Retrieve data
+POST	Create new data
+PUT	Replace existing data
+PATCH	Update part of existing data
+DELETE	Remove data
+
+My Key Takeaways
+Spring Boot reduces configuration and speeds up development.
+Spring Container creates and manages Beans.
+Dependency Injection makes classes loosely coupled.
+Constructor Injection is preferred over Setter Injection.
+Controllers handle requests, Services contain business logic, and Repositories communicate with the database.
