@@ -120,7 +120,7 @@ This endpoint is used to check whether the Spring Boot application is running.
 Running Service
 ```
 
-### Screenshot
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9676dfce-19e3-4ae0-ace2-f1bfc86e6db6" />
 
 
 ---
