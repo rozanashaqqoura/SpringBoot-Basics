@@ -27,35 +27,36 @@ public class BookController {
     public String healthCheck(){
         return "Running Service";
     }
+@PostMapping("/addbook")
+public String save(@RequestBody Book book) {
+    bookService.save(book);
+    return "Book Added Successfully";
+}
 
-    @PostMapping("/addbook")
-    public String addBook(@RequestBody Book book ){
-       
-      return bookService.addBook(book);
-
-
-    }
 
     @GetMapping("/getallbooks")
     public List<Book> getAllBooks(){
-        return bookService.getAllBooks();
+        return bookService.findAll();
     }
 
     @GetMapping("/{id}")
     public Book getBookById(@PathVariable int id){
-        return bookService.getBookById(id);
+        return bookService.findById(id);
     }
 
     @PutMapping("/{id}")
     public Book updateBook(
             @PathVariable int id,
             @RequestBody Book updatedBook) {
-        return bookService.updateBookById(id, updatedBook);
+        return bookService.update(updatedBook, id);
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteBook(@PathVariable int id) {
-        return bookService.deleteBookById(id);
-    }
+ @DeleteMapping("/{id}")
+public String deleteBook(@PathVariable int id) {
+
+    bookService.delete(id);
+
+    return "Book Deleted Successfully";
+}
 
 }
