@@ -1,70 +1,44 @@
 package com.rozana.bookapi.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.rozana.bookapi.model.Book;
+import com.rozana.bookapi.repository.BookRepository;
+
 @Service
 public class BookService {
-   private List<Book> books = new ArrayList<>();
 
-     public String addBook(Book book){
-        books.add(book);
-        return "Book Added Successfully";
-     }
+    private final BookRepository bookRepository;
 
-     public List<Book> getAllBooks(){
-         return books;
-     }
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
-     public  Book   getBookById(int id){
-      for(Book book : books){
-         if(book.getId() == id){
-            return book;
-         }
+    public void save(Book book) {
+      bookRepository.save(book);
+        
+    }
 
-      }
-      return null;
+    public List<Book> findAll() {
+        return bookRepository.findAll();
+    }
 
-     }
+    public Book findById(int id) {
+        return bookRepository.findById(id);
+    }
 
+    public Book update(Book book , int id) {
+        book.setId(id);
+       int rowsAffected = bookRepository.update(book);
+        if (rowsAffected == 0) {
+            throw new RuntimeException("Book not found with id: " + id);
+        }
+        return book;
+    }
 
-
-     public Book updateBookById(int id , Book updatedBook){
-      for(Book currentBook : books){
-         if(currentBook.getId() == id){
-            currentBook.setTitle(updatedBook.getTitle());
-            currentBook.setAuthor(updatedBook.getAuthor());
-            currentBook.setPrice(updatedBook.getPrice());
-            currentBook.setCategory(updatedBook.getCategory());
-            currentBook.setLanguage(updatedBook.getLanguage());
-            currentBook.setPages(updatedBook.getPages());
-            currentBook.setPublicationYear(updatedBook.getPublicationYear());
-            currentBook.setDescription(updatedBook.getDescription());
-            currentBook.setAvailable(updatedBook.isAvailable());
-            return currentBook;
-         }
-      }
-      return null;   
-     }
-
-
-     
-
-
-     public String deleteBookById(int id){
-      for(int i =0 ;i < books.size(); i++){
-         Book book = books.get(i);
-         if(book.getId()  == id){
-            books.remove(i);
-            return "Book Deleted Successfully";
-         }
-      }
-      return "Book not found";
-     }
-
-     
-
+    public void delete(int id) {
+        bookRepository.delete(id);
+    }
 }

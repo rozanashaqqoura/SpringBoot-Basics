@@ -1,37 +1,47 @@
 package com.rozana.bookapi.model;
 
 public class Book {
-    private int id ;
-    private String title ;
-    private String author;
-    private double price ;
-    private String category;
-    private String language;
-    private int pages;
-    private int publicationYear;
-    private String description;
-    private boolean available;
+private Integer id;
+private String title;
+private String author;
+private Double price;
+private String category;
+private String language;
+private Integer pages;
+private Integer publicationYear;
+private String description;
+private Boolean available;
 
-
-    public Book(
-        int id , String title , String author ,
-        double price , String category , String language, 
-        int pages , int publicationYear , String description , 
-        boolean available){
-        this.id = id ;
-        this.title = title ;
-        this.author = author ;
-        this.price = price ;
-        this.category = category ;
-        this.language = language ;
-        this.pages = pages ;
-        this.publicationYear = publicationYear ;
-        this.description = description ;
-        this.available = available;
+        public Book() {
     }
 
 
-    public int getId(){
+  public Book(
+    Integer id,
+    String title,
+    String author,
+    Double price,
+    String category,
+    String language,
+    Integer pages,
+    Integer publicationYear,
+    String description,
+    Boolean available) {
+
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.price = price;
+    this.category = category;
+    this.language = language;
+    this.pages = pages;
+    this.publicationYear = publicationYear;
+    this.description = description;
+    this.available = available;
+}
+
+
+    public Integer getId(){
         
         return id ;
     }
@@ -44,7 +54,7 @@ public class Book {
         
         return author ;
     }
-    public double getPrice(){
+    public Double getPrice(){
         
         return price ;
     }
@@ -56,11 +66,11 @@ public class Book {
         
         return language ;
     }
-    public int getPages(){
+    public Integer getPages(){
         
         return pages ;
     }
-    public int getPublicationYear(){
+    public Integer getPublicationYear(){
         
         return publicationYear ;
     }
@@ -68,9 +78,12 @@ public class Book {
         
         return description ;
     }
-    public boolean isAvailable(){
+    public Boolean isAvailable(){
         
         return available ;
+    }
+    public void setId(Integer id){
+        this.id = id ;
     }
      
     public void setTitle(String title){
@@ -81,7 +94,7 @@ public class Book {
         this.author = author ;
 
     }
-    public void setPrice(double price){
+    public void setPrice(Double price){
         this.price = price ;
     }
     public void setCategory(String category){
@@ -90,16 +103,16 @@ public class Book {
     public void setLanguage(String language){
         this.language = language ;
     }
-    public void setPages(int pages){
+    public void setPages(Integer pages){
         this.pages = pages ;
     }
-    public void setPublicationYear(int publicationYear){
+    public void setPublicationYear(Integer publicationYear){
         this.publicationYear = publicationYear ;
     }
     public void setDescription(String description){
         this.description = description ;
     }
-    public void setAvailable(boolean available){
+    public void setAvailable(Boolean available){
         this.available = available ;
     }
 
